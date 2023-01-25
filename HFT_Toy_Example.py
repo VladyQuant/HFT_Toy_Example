@@ -33,8 +33,8 @@ class Exchange:
         where micro_delay is uniformly distributed in range(1,GENERATION_RANGE).
     
     """
+    RUN_TIME = 30
     def __init__(self,order_pipe,order_book,order_filling):
-        self.RUN_TIME = 30
         self.AVERAGE_PRICE = 25.
         self.PRICE_SIGMA = 0.5
         self.GENERATION_RANGE = 1000
@@ -146,9 +146,9 @@ class Trader:
     filled_requests:
         dictionary of lists of filled request IDs at each exchange.
     """
+    RUN_TIME = 30
     def __init__(self,order_pipes,order_books,order_fillings,capital,n_contracts,
                  sent_requests,filled_requests):
-        self.RUN_TIME = 30
         self.capital = capital
         self.n_contracts = n_contracts         #Number of shares divided by 100, i.e. number of contracts. It is negative for short positions.
         self.comission = 0.0003
@@ -289,6 +289,7 @@ class Trader:
             subprocess.join()
 
 if __name__ == '__main__':
+    print("Starting a trader and 2 exchanges. Approximate RUNTIME {} seconds".format(Trader.RUN_TIME))
     random.seed(1)
     CAPITAL = 20000000 #Start capital.
     
