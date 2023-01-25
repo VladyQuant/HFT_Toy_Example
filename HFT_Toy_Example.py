@@ -6,6 +6,8 @@ Created on Tue May 22 18:48:43 2018
 @author: Vladimir Tsygankov
 """
 
+from __future__ import print_function
+
 from multiprocessing import Process, Manager
 import time
 import random
@@ -333,7 +335,7 @@ if __name__ == '__main__':
         process.join()
     
     n_trades_executed = len(trader.filled_requests[0]) + len(trader.filled_requests[1])
-    print "Start capital: ", CAPITAL
-    print "Final capital: ", trader.capital.value
-    print "Run time: {} seconds." .format(trader.RUN_TIME)
-    print "# of trades executed: ", n_trades_executed
+    print("Start capital: ", CAPITAL)
+    print("Final capital: ", trader.capital.value)
+    print("Run time: {} seconds." .format(trader.RUN_TIME))
+    print("# of trades executed: ", n_trades_executed)
